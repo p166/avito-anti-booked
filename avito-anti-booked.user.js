@@ -3,7 +3,10 @@
 // @namespace    http://tampermonkey.net/
 // @version      7.2
 // @description  Выделяет красным или скрывает карточки с пометкой "Забронировано" на Avito
-// @author       https://github.com/p166/avito-anti-booked
+// @author         https://github.com/p166/avito-anti-booked
+// @homepageURL    https://github.com/p166/avito-anti-booked
+// @source         https://github.com/p166/avito-anti-booked.git
+// @supportURL     https://github.com/p166/avito-anti-booked/issues
 // @include      https://www.avito.ru/*
 // @match        https://www.avito.ru/*
 // @match        https://avito.ru/*
