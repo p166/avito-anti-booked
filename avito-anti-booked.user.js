@@ -4,6 +4,7 @@
 // @version      7.2
 // @description  Выделяет красным или скрывает карточки с пометкой "Забронировано" на Avito
 // @author       https://github.com/p166/avito-anti-booked
+// @include      https://www.avito.ru/*
 // @match        https://www.avito.ru/*
 // @match        https://avito.ru/*
 // @grant        GM_getValue
