@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Avito — скрытие/подсветка «Забронировано» (v7.2)
 // @namespace    http://tampermonkey.net/
-// @version      7.2
+// @version      7.3
 // @description  Выделяет красным или скрывает карточки с пометкой "Забронировано" на Avito
 // @author         https://github.com/p166/avito-anti-booked
 // @homepageURL    https://github.com/p166/avito-anti-booked
