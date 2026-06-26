@@ -1,12 +1,13 @@
 // ==UserScript==
-// @name         Avito — скрытие/подсветка «Забронировано» (v7.2)
+// @name         Avito — скрытие/подсветка «Забронировано» (v7.4)
 // @namespace    http://tampermonkey.net/
-// @version      7.3
+// @version      7.4
 // @description  Выделяет красным или скрывает карточки с пометкой "Забронировано" на Avito
-// @author         https://github.com/p166/avito-anti-booked
-// @homepageURL    https://github.com/p166/avito-anti-booked
-// @source         https://github.com/p166/avito-anti-booked.git
-// @supportURL     https://github.com/p166/avito-anti-booked/issues
+// @author       p166
+// @license      MIT
+// @homepageURL  https://github.com/p166/avito-anti-booked
+// @source       https://github.com/p166/avito-anti-booked.git
+// @supportURL   https://github.com/p166/avito-anti-booked/issues
 // @include      https://www.avito.ru/*
 // @match        https://www.avito.ru/*
 // @match        https://avito.ru/*
@@ -22,9 +23,13 @@
   const STORAGE_KEY = 'avito_booked_mode';
   const BUTTON_ID = 'avito-booked-toggle-btn';
 
+  // Тексты для кнопки
+  const TEXT_HIDDEN = '🚫 Скрыто';
+  const TEXT_VISIBLE = '👁️ Показано';
+
   // Состояние: true = скрывать, false = подсвечивать
   let isHideMode = true;
-
+  
   try {
     isHideMode = GM_getValue(STORAGE_KEY, true);
   } catch (e) {
@@ -75,7 +80,7 @@
       if (span.textContent.trim() !== BADGE_TEXT) continue;
 
       let card = span.closest('[data-marker="item"]');
-
+      
       if (!card) {
         let parent = span.parentElement;
         while (parent) {
@@ -108,7 +113,7 @@
 
     const btn = document.createElement('div');
     btn.id = BUTTON_ID;
-    btn.innerHTML = isHideMode ? '🚫 Скрыто' : '👁️ Показано';
+    btn.innerHTML = isHideMode ? TEXT_HIDDEN : TEXT_VISIBLE;
     btn.style.cssText = `
       position: fixed;
       bottom: 20px;
@@ -129,11 +134,11 @@
 
     btn.onclick = () => {
       isHideMode = !isHideMode;
-
+      
       try { GM_setValue(STORAGE_KEY, isHideMode); } catch(e) {}
       localStorage.setItem(STORAGE_KEY, isHideMode);
 
-      btn.innerHTML = isHideMode ? '🚫 Скрыто' : '👁️ Показано';
+      btn.innerHTML = isHideMode ? TEXT_HIDDEN : TEXT_VISIBLE;
       btn.style.background = isHideMode ? '#333' : '#2ecc71';
 
       refreshAllCards();
