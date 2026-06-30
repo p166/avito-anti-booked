@@ -2,6 +2,7 @@
 // @name         Avito — скрытие/подсветка «Забронировано» (v7.4)
 // @namespace    http://tampermonkey.net/
 // @version      7.4
+// @icon         https://www.avito.st/dstatic/favicon.ico
 // @description  Выделяет красным или скрывает карточки с пометкой "Забронировано" на Avito
 // @author       p166
 // @license      MIT
